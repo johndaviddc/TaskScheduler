@@ -19,4 +19,15 @@ public class TaskServiceImpl implements TaskService {
     public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
+
+    @Override
+    public Task getTaskById(Long id) {
+        return taskRepository.findById(id)
+                .orElseThrow(() -> new CustomException("Task not found"));
+    }
+
+    @Override
+    public void deleteTask(Long id) {
+        taskRepository.deleteById(id);
+    }
 }
