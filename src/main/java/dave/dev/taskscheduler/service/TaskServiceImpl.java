@@ -1,5 +1,6 @@
 package dave.dev.taskscheduler.service;
 
+import dave.dev.taskscheduler.exception.CustomException;
 import dave.dev.taskscheduler.model.Task;
 import dave.dev.taskscheduler.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
