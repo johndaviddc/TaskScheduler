@@ -3,10 +3,9 @@ package dave.dev.taskscheduler.controller;
 import dave.dev.taskscheduler.model.Task;
 import dave.dev.taskscheduler.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -17,5 +16,14 @@ public class TaskController {
     @PostMapping
     public Task scheduleTask(@RequestBody Task task) {
         return taskService.schedulerTask(task);
+    }
+    @GetMapping
+    public List<Task> getAllTasks() {
+        return taskService.getAllTasks();
+    }
+
+    @GetMapping("/{id}")
+    public Task getTaskById(@PathVariable Long id) {
+        return taskService.getTaskById(id);
     }
 }
